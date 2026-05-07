@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 def myapp(request):
-    return HttpResponse("Hello world!")
+    template = loader.get_template('myfirsthtml.html')
+    return HttpResponse(template.render())
