@@ -11,3 +11,11 @@ def myapp(request):
         'users': users,
     }
     return HttpResponse(template.render(context, request))
+
+def details(request,id):
+    user = Users.objects.get(id=id)
+    template = loader.get_template('details.html')
+    context = {
+        'myapp': user,
+    }
+    return HttpResponse(template.render(context, request))
